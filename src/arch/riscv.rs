@@ -107,7 +107,7 @@ pub fn get_relocate_pairs(
                             panic!(r#"Symbol "{}" not found"#, name);
                         }
                         pairs.push(RelocatePair {
-                            src: VirtAddr::from(symbol_value),
+                            src: VirtAddr::from(symbol_value + base_addr),
                             dst: VirtAddr::from(destination),
                             count: size_of::<usize>() / size_of::<u8>(),
                         })
